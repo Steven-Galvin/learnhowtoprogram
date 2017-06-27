@@ -1,0 +1,25 @@
+<%= render "layouts/errors", :object => @lesson %>
+
+<%= form_for [@course, @week, @lesson] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :lesson_number %>
+  <%= f.number_field :lesson_number %>
+  <%= f.label :day %>
+  <%= f.select(:day, options_for_select([
+    ["Weekend", 0],
+    ["Monday", 1],
+    ["Tuesday", 2],
+    ["Wednesday", 3],
+    ["Thursday", 4],
+    ["Friday", 5]
+    ])) %>
+  <%= f.label :lesson_type %>
+  <%= f.select(:lesson_type, options_for_select([
+    ["Lesson", "Lesson"],
+    ["Exercise", "Exercise"]
+    ])) %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

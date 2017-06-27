@@ -1,0 +1,21 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+p {
+  text-indent: 0;
+}
+.lesson {
+  white-space: pre;
+}
+input, select, text-area, label {
+  display: block;
+}
+
+a {
+  display: inline-block;
+  transition: all 1s ease-in-out;
+}
+
+a:hover {
+  transform: scale(3) ;
+}

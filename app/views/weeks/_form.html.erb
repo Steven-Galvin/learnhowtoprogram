@@ -1,0 +1,17 @@
+<%= render "layouts/errors", :object => @week %>
+
+<%= form_for [@course, @week] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :week_number %>
+  <%= f.select(:week_number, options_for_select([
+    ["Pre-Work", 0],
+    ["Week 1", 1],
+    ["Week 2", 2],
+    ["Week 3", 3],
+    ["Week 4", 4],
+    ["Week 5", 5]
+    ])) %>
+    <br>
+  <%= f.submit %>
+<% end %>

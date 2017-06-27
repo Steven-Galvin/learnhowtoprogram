@@ -1,0 +1,29 @@
+<h1><%= @course.title %></h1>
+
+<% if @course.weeks.any? %>
+  <% @course.weeks.order(:week_number).each do |week| %>
+    <% if week.week_number === 0 %>
+      <li>(Pre-Work) <%= link_to week.title, course_week_path(@course, week) %></li>
+    <% elsif week.week_number === 1 %>
+      <li>(Week 1) <%= link_to week.title, course_week_path(@course, week) %></li>
+    <% elsif week.week_number === 2 %>
+      <li>(Week 2) <%= link_to week.title, course_week_path(@course, week) %></li>
+    <% elsif week.week_number === 3 %>
+      <li>(Week 3) <%= link_to week.title, course_week_path(@course, week) %></li>
+    <% elsif week.week_number === 4 %>
+      <li>(Week 4) <%= link_to week.title, course_week_path(@course, week) %></li>
+    <% else %>
+      <li>(Week 5) <%= link_to week.title, course_week_path(@course, week) %></li>
+    <% end %>
+  <% end %>
+<% else %>
+  <em>Nothing has been added to this course</em>
+<% end %>
+
+<hr>
+<span><%= link_to "Edit", edit_course_path(@course) %></span> |
+<span><%= link_to "Delete", course_path(@course),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></span> |
+<span><%= link_to "Return to courses", courses_path %></span> |
+<span><%= link_to "Add new week", new_course_week_path(@course) %></span>

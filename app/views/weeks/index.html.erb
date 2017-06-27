@@ -1,0 +1,11 @@
+<h1>Weeks</h1>
+
+<ul>
+  <% @weeks.each do |week| %>
+    <li><%= link_to week.title, course_week_path(@course, week) %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to "New Week", new_course_week_path %>

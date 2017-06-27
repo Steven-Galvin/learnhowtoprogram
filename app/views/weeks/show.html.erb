@@ -1,0 +1,28 @@
+<h1><%= @week.title %></h1>
+
+<% if @week.lessons.any? %>
+  <% @week.lessons.order(:day).each do |lesson| %>
+    <% if lesson.day === "0" %>
+      <li>Weekend - <%= link_to lesson.title,  course_week_lesson_path(@week.course, @week, lesson)%></li>
+    <% elsif lesson.day === "1" %>
+      <li>Monday - <%= lesson.title %></li>
+    <% elsif lesson.day === "2" %>
+      <li>Tuesday - <%= lesson.title %></li>
+    <% elsif lesson.day === "3" %>
+      <li>Wednesday - <%= lesson.title %></li>
+    <% elsif lesson.day === "4" %>
+      <li>Thursday - <%= lesson.title %></li>
+    <% else %>
+      <li>Friday - <%= lesson.title %></li>
+    <% end %>
+  <% end %>
+<% else %>
+  <em>There are no lessons for this week.</em>
+<% end %>
+<hr>
+<span><%= link_to "Edit", edit_course_week_path(@week.course, @week) %></span> |
+<span><%= link_to "Delete", course_week_path(@week.course, @week),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></span> |
+<span><%= link_to "Return to weeks", course_weeks_path %></span> |
+<span><%= link_to "Add new lesson", new_course_week_lesson_path(@week.course, @week) %></span>
