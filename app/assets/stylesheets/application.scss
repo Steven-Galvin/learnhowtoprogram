@@ -19,3 +19,16 @@ a {
 a:hover {
   transform: scale(3) ;
 }
+.my-nav {
+  border-bottom: solid 1px #333;
+  width: 100%;
+  padding-top: 1em;
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin-right: 1em;
+    }
+  }
+}

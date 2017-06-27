@@ -9,6 +9,17 @@
   </head>
 
   <body>
+    <div class="my-nav">
+      <div class="container">
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <% if @lesson %>
+            <li><%= link_to "Prev", course_week_lesson_path(@lesson.week.course, @lesson.week, @lesson.id - 1)%></li>
+            <li><%= link_to "Next", course_week_lesson_path(@lesson.week.course, @lesson.week, @lesson.id + 1) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
     <div class="container">
       <%= yield %>
     </div>
